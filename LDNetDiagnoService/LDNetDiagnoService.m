@@ -108,7 +108,7 @@ static NSString *const kCheckOutIPURL = @"";
     }
 
     if (_isRunning) {
-//        [self recordOutIPInfo];
+        [self recordOutIPInfo];
     }
 
     if (_isRunning) {
@@ -343,10 +343,10 @@ static NSString *const kCheckOutIPURL = @"";
 
     //不管服务器解析DNS是否可达，均需要ping指定ip地址
     if([_localIp rangeOfString:@":"].location == NSNotFound){
-        [pingAdd addObject:kPingOpenServerIP];
+        [pingAdd addObject:_dormain];
         [pingInfo addObject:@"开放服务器"];
     }
-
+  
     [self recordStepInfo:@"\n开始ping..."];
     _netPinger = [[LDNetPing alloc] init];
     _netPinger.delegate = self;
